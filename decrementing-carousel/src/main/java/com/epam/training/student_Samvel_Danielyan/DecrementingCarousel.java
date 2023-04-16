@@ -1,0 +1,34 @@
+package com.epam.training.student_Samvel_Danielyan;
+
+public class DecrementingCarousel {
+    private final int capacity;
+    static int[] carousel;
+    boolean isRun;
+    int index;
+
+    {
+        isRun = false;
+        index = 0;
+    }
+
+    public DecrementingCarousel(int capacity) {
+        this.capacity = capacity;
+        carousel = new int[capacity];
+    }
+
+    public boolean addElement(int element) {
+        if (element > 0 && index < capacity && !isRun) {
+            carousel[index++] = element;
+            return true;
+        }
+        return false;
+    }
+
+    public CarouselRun run(){
+       if(!isRun){
+           isRun = true;
+           return new CarouselRun();
+       }
+       return null;
+    }
+}
